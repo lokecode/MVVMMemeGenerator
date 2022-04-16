@@ -1,7 +1,7 @@
 package com.example.httpmethodsretrofitexample.feature_meme_generator.di
 
-import com.example.httpmethodsretrofitexample.feature_meme_generator.data.remote.APIService
-import com.example.httpmethodsretrofitexample.feature_meme_generator.data.remote.APIService.Companion.BASE_URL
+import com.example.httpmethodsretrofitexample.feature_meme_generator.data.remote.MemeApis
+import com.example.httpmethodsretrofitexample.feature_meme_generator.data.remote.MemeApis.Companion.BASE_URL
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -12,7 +12,7 @@ object  RetrofitInstance {
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(APIService::class.java)
+            .create(MemeApis::class.java)
     }
 }
 

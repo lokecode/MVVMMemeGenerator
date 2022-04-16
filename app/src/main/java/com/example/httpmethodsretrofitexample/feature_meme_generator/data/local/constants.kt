@@ -1,10 +1,12 @@
 package com.example.httpmethodsretrofitexample.feature_meme_generator.data.local
 
 import com.example.httpmethodsretrofitexample.adapter.MyAdapter
+import com.example.httpmethodsretrofitexample.databinding.ActivityMainBinding
 
 class Constants {
     companion object {
         val myAdapter by lazy { MyAdapter() }
+        lateinit var binding: ActivityMainBinding
 
         var randomImg = 0;
         var randomText = 0;

@@ -7,8 +7,8 @@ import com.example.httpmethodsretrofitexample.feature_meme_generator.data.local.
 import com.example.httpmethodsretrofitexample.feature_meme_generator.data.local.Constants.Companion.randomImg
 import com.example.httpmethodsretrofitexample.feature_meme_generator.data.local.Constants.Companion.randomText
 import com.example.httpmethodsretrofitexample.feature_meme_generator.di.RetrofitInstance
-import com.example.httpmethodsretrofitexample.feature_meme_generator.domain.model.Data_Type
-import com.example.httpmethodsretrofitexample.feature_meme_generator.domain.model.model
+import com.example.httpmethodsretrofitexample.feature_meme_generator.domain.model.MemeModel
+import com.example.httpmethodsretrofitexample.feature_meme_generator.domain.model.PostMemeModel
 import kotlinx.coroutines.*
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -16,18 +16,18 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
-class ViewModel() {
+class MemeApisRepository() {
 
     fun getMyData() {
         val retrofitBuilder = RetrofitInstance.retrofit
 
         CoroutineScope(Dispatchers.IO).launch {
             val retrofitData = retrofitBuilder.getPost()
-            retrofitData.enqueue(object : Callback<List<Data_Type>?> {
-                override fun onResponse(call: Call<List<Data_Type>?>, response: Response<List<Data_Type>?>) {
+            retrofitData.enqueue(object : Callback<List<MemeModel>?> {
+                override fun onResponse(call: Call<List<MemeModel>?>, response: Response<List<MemeModel>?>) {
                     response.body()?.let { myAdapter.setData(it) }
                 }
-                override fun onFailure(call: Call<List<Data_Type>?>, t: Throwable) {
+                override fun onFailure(call: Call<List<MemeModel>?>, t: Throwable) {
                     Constants
                 }
             })
@@ -51,14 +51,14 @@ class ViewModel() {
 
     fun updateMeme(id: String) {
         val retrofitBuilder = RetrofitInstance.retrofit
-        val myMeme = model(Constants.arrayOfMemeImg[randomImg], Constants.arrayOfMemeText[randomText])
+        val myMeme = PostMemeModel(Constants.arrayOfMemeImg[randomImg], Constants.arrayOfMemeText[randomText])
         CoroutineScope(Dispatchers.IO).launch {
             val response = retrofitBuilder.updateMeme(id, myMeme)
-            response.enqueue(object: Callback<model> {
-                override fun onResponse(call: Call<model>, response: Response<model>) {
+            response.enqueue(object: Callback<PostMemeModel> {
+                override fun onResponse(call: Call<PostMemeModel>, response: Response<PostMemeModel>) {
                     getMyData()
                 }
-                override fun onFailure(call: Call<model>, t: Throwable) {
+                override fun onFailure(call: Call<PostMemeModel>, t: Throwable) {
                     getMyData()
                 }
             })
@@ -67,7 +67,7 @@ class ViewModel() {
 
     fun postMeme() {
         val retrofitBuilder = RetrofitInstance.retrofit
-        val myMeme = model(arrayOfMemeImg[randomImg], arrayOfMemeText[randomText])
+        val myMeme = PostMemeModel(arrayOfMemeImg[randomImg], arrayOfMemeText[randomText])
 
         val postRequest = retrofitBuilder.createEmployee(myMeme)
         postRequest.enqueue(object: Callback<ResponseBody> {
