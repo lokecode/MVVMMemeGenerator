@@ -6,7 +6,6 @@ import com.example.httpmethodsretrofitexample.databinding.ActivityMainBinding
 class Constants {
     companion object {
         val myAdapter by lazy { MyAdapter() }
-        lateinit var binding: ActivityMainBinding
 
         var randomImg = 0;
         var randomText = 0;

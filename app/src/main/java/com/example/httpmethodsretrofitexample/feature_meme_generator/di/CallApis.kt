@@ -2,17 +2,27 @@ package com.example.httpmethodsretrofitexample.feature_meme_generator.di
 
 import com.example.httpmethodsretrofitexample.feature_meme_generator.data.remote.MemeApis
 import com.example.httpmethodsretrofitexample.feature_meme_generator.data.remote.MemeApis.Companion.BASE_URL
+import com.example.httpmethodsretrofitexample.feature_meme_generator.data.repository.MemeApisRepository
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object  RetrofitInstance {
+class CallApis {
 
-    val retrofit by lazy {
+    private val apiInstance by lazy {
         Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(MemeApis::class.java)
+    }
+
+    val refreshMemes = MemeApisRepository(apiInstance).get()
+    val postMeme = MemeApisRepository(apiInstance).post()
+    fun deleteMeme(id: String){
+        return MemeApisRepository(apiInstance).delete(id)
+    }
+    fun updateMeme(id: String){
+        return MemeApisRepository(apiInstance).update(id)
     }
 }
 
