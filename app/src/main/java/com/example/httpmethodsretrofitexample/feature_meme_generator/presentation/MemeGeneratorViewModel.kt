@@ -7,6 +7,6 @@ import com.example.httpmethodsretrofitexample.feature_meme_generator.data.local.
 object MemeGeneratorViewModel {
     fun generateMeme(){
         randomImg = Random.nextInt(8)
-        randomText = Random.nextInt(9)
+        randomText = Random.nextInt(8)
     }
 }

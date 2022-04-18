@@ -32,7 +32,7 @@ class onClickListenerEvents {
     fun imageButton4(binding: ActivityMainBinding){
         binding.imageButton4.setOnClickListener {
             CallApis().postMeme
-            CallApis().refreshMemes
+            CallApis().refreshMemes()
         }
     }
 }

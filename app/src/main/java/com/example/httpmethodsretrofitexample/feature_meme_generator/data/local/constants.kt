@@ -1,14 +1,13 @@
 package com.example.httpmethodsretrofitexample.feature_meme_generator.data.local
 
 import com.example.httpmethodsretrofitexample.adapter.MyAdapter
-import com.example.httpmethodsretrofitexample.databinding.ActivityMainBinding
 
 class Constants {
     companion object {
         val myAdapter by lazy { MyAdapter() }
 
-        var randomImg = 0;
-        var randomText = 0;
+        var randomImg = 0
+        var randomText = 0
         val arrayOfMemeImg = arrayListOf<String>(
             "https://i.imgflip.com/2/2l2ri4.jpg",
             "https://i.blogs.es/d86db0/meme-fry-1/450_1000.jpg",

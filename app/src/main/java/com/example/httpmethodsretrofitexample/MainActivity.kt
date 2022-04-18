@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        CallApis().refreshMemes
+        CallApis().refreshMemes()
         setupRecyclerview(this, binding)
         onClickListenerEvents().imageButton3(binding)
         onClickListenerEvents().imageButton4(binding)
