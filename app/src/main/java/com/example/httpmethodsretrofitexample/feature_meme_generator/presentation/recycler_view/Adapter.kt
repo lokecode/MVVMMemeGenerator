@@ -1,16 +1,10 @@
 package com.example.httpmethodsretrofitexample.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.annotation.NonNull
 import androidx.recyclerview.widget.RecyclerView
-import com.example.httpmethodsretrofitexample.R
 import com.example.httpmethodsretrofitexample.databinding.RowLayoutBinding
-import com.example.httpmethodsretrofitexample.feature_meme_generator.di.CallApis
 import com.example.httpmethodsretrofitexample.feature_meme_generator.domain.model.MemeModel
-import com.example.httpmethodsretrofitexample.feature_meme_generator.presentation.onClickListenerEvents
+import com.example.httpmethodsretrofitexample.feature_meme_generator.presentation.onClickListenerEvents.recyclerViewButtons
 import com.squareup.picasso.Picasso
 
 
@@ -32,8 +26,7 @@ class MyAdapter: RecyclerView.Adapter<MyAdapter.MyViewHolder>(){
         val view = holder.itemBinding
         view.textView.text = myList[position].text
         Picasso.get().load(myList[position].image).into(holder.itemBinding.meme)
-        onClickListenerEvents().imageBotton(myList[position].id, view)
-        onClickListenerEvents().imageBotton2(myList[position].id, view)
+        recyclerViewButtons(myList[position].id, view)
     }
 
     fun setData(newList: List<MemeModel>){

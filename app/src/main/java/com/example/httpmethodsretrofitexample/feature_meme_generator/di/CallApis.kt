@@ -16,15 +16,18 @@ class CallApis {
             .create(MemeApis::class.java)
     }
 
-    fun refreshMemes() {
+    fun refreshMemes(){
         MemeApisRepository(apiInstance).get()
     }
-    val postMeme = MemeApisRepository(apiInstance).post()
+    fun postMeme() {
+        MemeApisRepository(apiInstance).post()
+    }
+
     fun deleteMeme(id: String){
-        return MemeApisRepository(apiInstance).delete(id)
+        MemeApisRepository(apiInstance).delete(id)
     }
     fun updateMeme(id: String){
-        return MemeApisRepository(apiInstance).update(id)
+        MemeApisRepository(apiInstance).update(id)
     }
 }
 

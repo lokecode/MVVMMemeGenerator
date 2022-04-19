@@ -1,20 +1,14 @@
 package com.example.httpmethodsretrofitexample.feature_meme_generator.data.repository
 
 import android.util.Log
-import com.example.httpmethodsretrofitexample.feature_meme_generator.data.local.Constants
 import com.example.httpmethodsretrofitexample.feature_meme_generator.data.local.Constants.Companion.arrayOfMemeImg
 import com.example.httpmethodsretrofitexample.feature_meme_generator.data.local.Constants.Companion.arrayOfMemeText
 import com.example.httpmethodsretrofitexample.feature_meme_generator.data.local.Constants.Companion.myAdapter
 import com.example.httpmethodsretrofitexample.feature_meme_generator.data.local.Constants.Companion.randomImg
 import com.example.httpmethodsretrofitexample.feature_meme_generator.data.local.Constants.Companion.randomText
 import com.example.httpmethodsretrofitexample.feature_meme_generator.data.remote.MemeApis
-import com.example.httpmethodsretrofitexample.feature_meme_generator.domain.model.MemeModel
 import com.example.httpmethodsretrofitexample.feature_meme_generator.domain.model.PostMemeModel
 import kotlinx.coroutines.*
-import okhttp3.ResponseBody
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import java.io.IOException
 
 
@@ -53,6 +47,7 @@ class MemeApisRepository(
                 api.updateMeme(id, myMeme)
                 get()
             } catch (e: IOException) {
+                get()
                 Log.d("MainActivity", "${e}")
             }
         }

@@ -2,9 +2,7 @@ package com.example.httpmethodsretrofitexample.feature_meme_generator.data.remot
 
 import com.example.httpmethodsretrofitexample.feature_meme_generator.domain.model.MemeModel
 import com.example.httpmethodsretrofitexample.feature_meme_generator.domain.model.PostMemeModel
-import okhttp3.Response
 import okhttp3.ResponseBody
-import retrofit2.Call
 import retrofit2.http.*
 
 
@@ -17,10 +15,10 @@ interface MemeApis {
 
 
     @PUT("/user/{id}")
-    suspend fun updateMeme(@Path("id") id: String, @Body requestBody: PostMemeModel): Call<PostMemeModel>
+    suspend fun updateMeme(@Path("id") id: String, @Body requestBody: PostMemeModel): PostMemeModel
 
     @POST("/user")
-    suspend fun postMeme(@Body requestBody: PostMemeModel): Call<ResponseBody>
+    suspend fun postMeme(@Body requestBody: PostMemeModel): ResponseBody
 
     companion object {
         const val BASE_URL = "https://us-central1-rest-api-ed3bc.cloudfunctions.net"

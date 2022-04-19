@@ -27,7 +27,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/generateButton"
         android:layout_width="52dp"
         android:layout_height="50dp"
         android:background="#00FFFFFF"
@@ -37,7 +37,7 @@
         app:srcCompat="@drawable/ic_baseline_loop" />
 
     <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/postButton"
         android:layout_width="52dp"
         android:layout_height="40dp"
         android:background="#00FFFFFF"
@@ -53,7 +53,7 @@
         android:textColor="#FFFFFF"
         android:text=""
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton4"
+        app:layout_constraintEnd_toStartOf="@+id/postButton"
         app:layout_constraintTop_toTopOf="@+id/textView4" />
 
     <ImageView
@@ -62,7 +62,7 @@
         android:layout_height="52dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textView2"
-        app:layout_constraintStart_toEndOf="@+id/imageButton3"
+        app:layout_constraintStart_toEndOf="@+id/generateButton"
         app:layout_constraintTop_toTopOf="@+id/textView4"
         app:srcCompat="?attr/selectableItemBackgroundBorderless" />
 </androidx.constraintlayout.widget.ConstraintLayout>
